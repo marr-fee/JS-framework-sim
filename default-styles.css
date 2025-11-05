@@ -1,0 +1,414 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+#app-container{
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+    padding-top: 140px;
+}
+
+.def-page-body-wrapper{
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.def-header{
+    background-color: gray;
+    height: 70px;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 0 35px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    z-index: 998;
+}
+
+.def-hero-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;  
+    height: 400px;
+    background: #333; 
+    background-size: cover;
+    background-position: center;
+    margin: 20px auto;
+}
+
+.def-hero-text{
+    text-align: center;   
+    font-size: 45px; 
+}
+
+.def-hero-slider-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0; 
+    margin: 25px auto;
+    height: 300px;
+}
+
+.slides{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+}
+
+.slide{
+    min-width: 100%;
+    height: 100%;  
+    background-size: cover;
+    background-position: center;
+    position: relative;    
+}
+
+.caption{
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    font-weight: 600;
+}
+
+.def-grid-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px; 
+    padding: 0;
+    margin: 25px auto;
+    width: 100%;
+}
+
+.def-grid-items{
+    background: lightblue;
+    aspect-ratio: 3/2;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.def-grid-p{
+    font-size: 30px;    
+}
+
+.def-grid-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.def-sidebar{
+    position: absolute;
+    top: 50px;        
+    left: 0;
+    width: 350px;
+    padding-top: 25px;
+    height: calc(100vh - 70px);
+    background: grey;
+    overflow-y: auto;
+    transform: translateX(-100%); 
+    transition: transform .3s ease;
+    z-index: 999;
+}
+
+.def-sidebar ul{
+    list-style-type: none;
+    background-color: grey;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 0;
+    border-radius: 15px;    
+}
+
+.def-sidebar ul > li{
+    padding: 25px 15px;
+    border-bottom: 1px solid black;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.def-navbar{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(165, 150, 150);
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.def-navbar ul{
+    display: flex;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0 auto;
+
+}
+
+.def-navbar ul > li{
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 25px;
+}
+
+.def-navbar ul > li:hover{
+    cursor: pointer;
+    background-color: #333;
+    color: aliceblue;
+}
+
+.def-hamburger-container{
+    width: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.def-hamburger-container:hover{
+    cursor: pointer;
+}
+
+.def-hamburger-lines{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.def-button{
+    width: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+}
+
+.def-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.def-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b5b5b5;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-top: 4px;
+}
+
+.def-input input:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.def-select {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+.def-select select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b5b5b5;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin-top: 4px;
+  background-color: #fff;
+}
+
+.def-select select:focus {
+  border-color: #333;
+  outline: none;
+}
+
+.def-textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.def-textarea textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;   
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #b5b5b5;
+  resize: vertical;     
+  font: inherit;
+  box-sizing: border-box;
+  margin-top: 6px;
+}
+
+.def-textarea textarea:focus {
+  outline: none;
+  border-color: #2b6cb0; 
+  box-shadow: 0 0 0 3px rgba(43,108,176,0.08);
+}
+
+.def-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;              
+  cursor: pointer;
+  margin-bottom: 20px;
+  user-select: none;
+  width: 100%;          
+  box-sizing: border-box;
+}
+
+.def-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  appearance: auto;      
+}
+
+.def-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Individual radio item (label wrapping input + text) */
+.def-radio-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Radio input sizing */
+.def-radio-item input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+/* Focus state for radio inputs */
+.def-radio-item input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(43,108,176,0.08);
+  border-color: #2b6cb0;
+}
+
+.def-text-input,
+.def-input,
+input.def-text-input,
+input.def-input {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font: inherit;
+  margin-top: 6px;
+}
+
+.def-text-input:focus,
+.def-input:focus,
+input.def-text-input:focus,
+input.def-input:focus {
+  outline: none;
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 3px rgba(43,108,176,0.08);
+}
+
+.def-form-btn{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b5b5b5;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 15px auto;
+}
+
+
+.def-footer{
+    background-color: gray;
+    height: 250px;
+    width: 100%;
+    border: none;
+    margin: 0;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;     
+}
