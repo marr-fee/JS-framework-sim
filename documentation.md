@@ -52,6 +52,18 @@ id - string
 ## Returns: HTMLElement — <nav>
 
 
+## makeSideBar(classes = [], nestElement = [], id)
+
+##  Use case
+const sidebarItems = [
+    { 'Home': 'icons/home.png' },
+    { 'Profile': 'icons/user.png' },
+    { 'Settings': 'icons/settings.png' },
+    'About' // plain text still works
+];
+
+body.appendChild(makeSideBar(['class'], sidebarItems, 'default-class'));
+
 
 
 ✅ Hero Components

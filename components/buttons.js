@@ -1,6 +1,6 @@
 import { addClass } from "../utils.js";
 
-export function makeButton(text, classes=[], func, id='') {
+export function makeButton(text, classes=[], func, id) {
     const button = document.createElement('button');
     addClass(classes, button, 'def-button')
     
@@ -11,9 +11,10 @@ export function makeButton(text, classes=[], func, id='') {
 
 }
 
-export function makeFormButton(text='', classes=[], func='', id='') {
+export function makeFormButton(text='', classes=[], func='', id) {
     const button = document.createElement('button')
     if (text) button.textContent = text;
+    if (id) button.id = id;
     addClass(classes, button, 'def-form-btn')
     if (func) button.addEventListener("click", func);
     return button;

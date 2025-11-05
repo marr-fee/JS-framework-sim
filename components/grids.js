@@ -2,7 +2,7 @@ import { addClass } from "../utils.js";
 import { makeImage } from "./image.js";
 
 
-export function makeCardGrid(contentType='', contents=[], classes=[], id='') {
+export function makeCardGrid(contentType='', contents=[], classes=[], id) {
     const container = document.createElement('div')
     container.classList.add('def-grid-container')
     if (id) container.id = id

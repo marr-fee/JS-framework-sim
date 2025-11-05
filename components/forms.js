@@ -1,6 +1,6 @@
 import { addClass, nestElements } from "../utils.js";
 
-export function makeForm(action = "", method = "", classes = [], nestElement=[], id = "") {
+export function makeForm(action = "", method = "", classes = [], nestElement=[], id) {
     const form = document.createElement("form");
 
     if (action) form.action = action;
@@ -13,7 +13,7 @@ export function makeForm(action = "", method = "", classes = [], nestElement=[],
 }
 
 
-export function makeFormInput(label="", type = "text", name="", placeholder = "", classes = [], id="") {
+export function makeFormInput(label="", type = "text", name="", placeholder = "", classes = [], id) {
     const labelElem = document.createElement('label')
     labelElem.textContent = label
     labelElem.htmlFor = id
@@ -28,7 +28,7 @@ export function makeFormInput(label="", type = "text", name="", placeholder = ""
   return labelElem;
 }
 
-export function makeSelect(label = "", name = "", options = [], classes = [], id = "") {
+export function makeSelect(label = "", name = "", options = [], classes = [], id) {
     const labelElem = document.createElement("label");
     if (label) labelElem.textContent = label;
     if (id) labelElem.htmlFor = id;
@@ -51,7 +51,7 @@ export function makeSelect(label = "", name = "", options = [], classes = [], id
 }
 
 
-export function makeCheckbox( label = "", name = "", checked = false, classes = [], id = "") {
+export function makeCheckbox( label = "", name = "", checked = false, classes = [], id) {
     const labelElem = document.createElement("label");
     if (label) labelElem.textContent = label;
     if (id) labelElem.htmlFor = id;
@@ -72,7 +72,7 @@ export function makeCheckbox( label = "", name = "", checked = false, classes = 
 
 
 
-export function makeRadioGroup( label = "", name = "", options = [], classes = [], id = "" ) {
+export function makeRadioGroup( label = "", name = "", options = [], classes = [], id) {
     const wrapper = document.createElement("div");
     if (id) wrapper.id = id;
 
@@ -104,7 +104,7 @@ export function makeRadioGroup( label = "", name = "", options = [], classes = [
 }
 
 
-export function makeTextArea( label = "", name = "", placeholder = "", classes = [], id = "") {
+export function makeTextArea( label = "", name = "", placeholder = "", classes = [], id) {
     const labelElem = document.createElement("label");
     if (label) labelElem.textContent = label;
     if (id) labelElem.htmlFor = id;

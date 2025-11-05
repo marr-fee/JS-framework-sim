@@ -1,7 +1,7 @@
 import { addClass } from "../utils.js";
 
 
-export function makeHero(imageUrl='', classes=[], nestElement=[], id='') {
+export function makeHero(imageUrl='', classes=[], nestElement=[], id) {
     const container = document.createElement('div')
     if (id) container.id = id
     addClass(classes, container, 'def-hero-container')
@@ -23,7 +23,7 @@ export function makeHero(imageUrl='', classes=[], nestElement=[], id='') {
 
 
 
-export function makeSliderHero(imageUrl=[], text=[], classes=[], id='') {
+export function makeSliderHero(imageUrl=[], text=[], classes=[], id) {
     const container = document.createElement('div')
     if (id) container.id = id
     addClass(classes, container, 'def-hero-slider-container')
@@ -64,6 +64,6 @@ export function makeSliderHero(imageUrl=[], text=[], classes=[], id='') {
         slides.style.transform = `translateX(-${current * 100}%)`;
     }
 
-    //setInterval(nextSlide, 4000);
+    setInterval(nextSlide, 4000);
     return container
 }

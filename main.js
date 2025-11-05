@@ -31,20 +31,15 @@ export function makeBody(classses=[], nestElement=[], id='') {
     return container
 }
 
-function render(elem) {
-    appContainer.appendChild(elem)
-}
-
-
-
 // PAGE LAYOUT TEMPLATE
 // Create sections seperatelly and stack to layyout
 
 // const pageLayout = [h1Text, formInput, formInput2, formInput3, textArea, formButton, checkboxSection, radioSection, countrySelect, textGrid, imageGrid]
 // const pageBody = makeBody('', pageLayout)
-
+function render(elem) {
+    appContainer.appendChild(elem)
+}
 document.addEventListener("DOMContentLoaded", () => {
     // RENDER ELEMENTS TO PAGE
-    // render(pageBody)
 });
 

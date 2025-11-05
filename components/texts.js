@@ -1,6 +1,6 @@
 import { addClass } from "../utils.js";
 
-export function makeText(type, text='', classes=[], id='') {
+export function makeText(type, text='', classes=[], id) {
    const textElem = document.createElement(type);
    textElem.textContent = text
    if (id) textElem.id = id
@@ -9,3 +9,11 @@ export function makeText(type, text='', classes=[], id='') {
    return textElem
 }
 
+export function makeCaption(text="",classes=[], id) {
+   const textElem = document.createElement('p')
+   textElem.textContent = text
+   if (id) textElem.id = id
+   addClass(classes, textElem, 'def-caption')
+
+   return textElem
+}
