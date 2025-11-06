@@ -32,28 +32,6 @@ export function makeBody(classses=[], nestElement=[], id='') {
     return container
 }
 
-const products = [
-  {
-    image: "images/cotton-socks.png",
-    item: { name: "Cool Sneakers", description: "Stylish and comfy." },
-    "item cost": { cost: "$99", shopIcon: "🛒" }
-  },
-  {
-    image: "images/plain-t-shirt.png",
-    item: { name: "Denim Jacket", description: "Classic blue denim." },
-    "item cost": { cost: "$79" }
-  },
-  {
-    image: "images/placeholder.jpg",
-    item: { name: "Cap", description: "Adjustable cotton cap." },
-    "item cost": { cost: "$89" }
-  }
-];
-
-
-
-document.body.appendChild
-const store = makeStoreTemplate('', products)
 // PAGE LAYOUT TEMPLATE
 // Create sections seperatelly and stack to layyout
 
@@ -64,6 +42,6 @@ function render(elem) {
 }
 document.addEventListener("DOMContentLoaded", () => {
     // RENDER ELEMENTS TO PAGE
-    render(store)
+
 });
 
