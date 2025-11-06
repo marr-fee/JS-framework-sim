@@ -3,7 +3,7 @@ import { addClass, nestElements } from "../utils.js"
 export let usingNavMenu = false
 
 export function toggleSidebar() {
-    const sb = document.querySelector('.sidebar')
+    const sb = document.querySelector('.def-sidebar')
     sb.style.transform =
         sb.style.transform === 'translateX(0%)'
         ? 'translateX(-100%)'
@@ -20,7 +20,7 @@ export function makeHeader(classes=[], nestElement=[], id) {
 }
 
 
-export function makeSideBar(classes=[], nestElement=[], id) {
+export function makeSideBar(classes=[], nestElement=[], link='#', id) {
     const container = document.createElement('div');
     const listWrapper = document.createElement('ul');
 
@@ -28,38 +28,35 @@ export function makeSideBar(classes=[], nestElement=[], id) {
 
     nestElement.forEach(item => {
         const list = document.createElement('li');
-        const wrapper = document.createElement('div');
-        wrapper.classList.add('def-sidebar-img'); 
-
+        list.classList.add('def-sidebar-item')
+        const wrapperLink = document.createElement('a');
+ 
+        if (link) wrapperLink.href = link
         // Handle both simple strings and {text: image} objects
         if (typeof item === 'object' && item !== null) {
             const [text, imgSrc] = Object.entries(item)[0];
 
-            // Create image/icon element
             const img = document.createElement('img');
             img.src = imgSrc;
             img.alt = text;
-            img.classList.add('sidebar-icon'); // optional for styling
+            img.classList.add('sidebar-icon'); 
 
-            // Create text element
             const span = document.createElement('span');
             span.textContent = text;
 
-            // Append both to wrapper
-            wrapper.appendChild(img);
-            wrapper.appendChild(span);
+            wrapperLink.appendChild(img);
+            wrapperLink.appendChild(span);
         } else {
             // fallback if only text provided
-            wrapper.textContent = item;
+            wrapperLink.textContent = item;
         }
 
-        list.appendChild(wrapper);
+        list.appendChild(wrapperLink);
         listWrapper.appendChild(list);
     });
 
     container.appendChild(listWrapper);
     addClass(classes, container, 'def-sidebar');
-    container.classList.add('sidebar');
 
     return container;
 }
@@ -80,11 +77,9 @@ export function makeHamburgerMenu(classes=[], func, id) {
     })
 
     if (func) container.addEventListener('click', () => {
-        func   
+        func()   
         container.classList.toggle('active');
     });
-
-    
     return container
 }
 

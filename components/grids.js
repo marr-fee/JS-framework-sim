@@ -29,3 +29,4 @@ export function makeCardGrid(contentType='', contents=[], classes=[], id) {
     }
     return container
 }
+
