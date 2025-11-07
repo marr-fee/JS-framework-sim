@@ -1,5 +1,6 @@
 import { addClass } from "../utils.js";
 import { makeImage } from "./image.js";
+import { makeText } from "./texts.js";
 
 
 export function makeCardGrid(contentType='', contents=[], classes=[], id) {
@@ -12,8 +13,7 @@ export function makeCardGrid(contentType='', contents=[], classes=[], id) {
             item.classList.add('def-grid-items')
 
             if (contentType === 'text'){
-                const itemTxt = document.createElement('p')
-                itemTxt.textContent = content 
+                const itemTxt = makeText('p', content)
                 addClass(classes, itemTxt, 'def-grid-p') 
                 item.appendChild(itemTxt)
 

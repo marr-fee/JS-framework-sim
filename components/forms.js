@@ -72,7 +72,7 @@ export function makeCheckbox( label = "", name = "", checked = false, classes = 
 
 
 
-export function makeRadioGroup( label = "", name = "", options = [], classes = [], id) {
+export function makeRadioElem( label = "", name = "", options = [], classes = [], id) {
     const wrapper = document.createElement("div");
     if (id) wrapper.id = id;
 

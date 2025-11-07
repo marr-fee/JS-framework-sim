@@ -1,7 +1,8 @@
 import { addClass } from "../utils.js";
+import { makeImage } from "./image.js";
 import { makeText } from "./texts.js";
 
-// List structure 
+// Example List structure 
 
 /**
  * const products = [
@@ -25,7 +26,7 @@ import { makeText } from "./texts.js";
  * 
  */
 
-export function makeStoreTemplate(classes = [], nestElements = [], id) {
+export function makeStoreTemplate(nestElements = [], classes = [],  id) {
     // Main container for the grid
     const container = document.createElement("div");
     if (id) container.id = id;
@@ -46,12 +47,7 @@ export function makeStoreTemplate(classes = [], nestElements = [], id) {
         const imgSection = document.createElement("div");
         imgSection.classList.add('def-shop-img-div');
         if (nestElement.image) {
-            const img = document.createElement('img');
-            img.src = nestElement.image;
-            img.alt = nestElement.item?.name || "Product Image";
-            img.style.width = "100%";
-            img.style.height = "100%";
-            img.style.objectFit = "cover";
+            const img = makeImage(nestElement.image, nestElement.item?.name || "Product Image")
             imgSection.appendChild(img);
         }
 
@@ -77,15 +73,14 @@ export function makeStoreTemplate(classes = [], nestElements = [], id) {
         const costInfo = nestElement["item cost"];
         if (costInfo) {
             if (costInfo.cost) {
-                const cost = document.createElement('span');
-                cost.textContent = costInfo.cost;
+                const cost = makeText('span', costInfo.cost)
                 cost.classList.add('def-cost');
                 itemCostShopSection.appendChild(cost);
             }
 
             if (costInfo.shopIcon) {
                 const icon = document.createElement('span');
-                icon.innerHTML = costInfo.shopIcon; // can be SVG or emoji
+                icon.innerHTML = costInfo.shopIcon; 
                 icon.classList.add('def-shop-icon');
                 icon.style.marginLeft = "10px";
                 itemCostShopSection.appendChild(icon);

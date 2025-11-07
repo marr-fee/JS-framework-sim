@@ -10,9 +10,7 @@ export function makeText(type, text='', classes=[], id) {
 }
 
 export function makeCaption(text="",classes=[], id) {
-   const textElem = document.createElement('p')
-   textElem.textContent = text
-   if (id) textElem.id = id
+   const textElem = makeText('p', text, '', id)
    addClass(classes, textElem, 'def-caption')
 
    return textElem

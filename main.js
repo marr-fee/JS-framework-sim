@@ -5,7 +5,7 @@ import { makeText } from "./components/texts.js";
 import { makeButton, makeFormButton } from "./components/buttons.js";
 import { makeCardGrid } from "./components/grids.js";
 import { makeFooter } from "./components/footer.js";
-import { makeCheckbox, makeFormInput, makeRadioGroup, makeSelect, makeTextArea } from "./components/forms.js";
+import { makeCheckbox, makeFormInput, makeRadioElem, makeSelect, makeTextArea } from "./components/forms.js";
 import { addClass, nestElements } from "./utils.js";
 import { makeImage } from "./components/image.js";
 import { makeStoreTemplate } from "./components/shop-template.js";
@@ -35,6 +35,24 @@ export function makeBody(classses=[], nestElement=[], id='') {
 // PAGE LAYOUT TEMPLATE
 // Create sections seperatelly and stack to layyout
 
+ const products = [
+  {
+    image: "images/cotton-socks.png",
+    item: { name: "Cool Sneakers", description: "Stylish and comfy." },
+    "item cost": { cost: "$99", shopIcon: "🛒" }
+  },
+  {
+    image: "images/plain-t-shirt.png",
+    item: { name: "Denim Jacket", description: "Classic blue denim." },
+    "item cost": { cost: "$79" }
+  },
+  {
+    image: "images/placeholder.jpg",
+    item: { name: "Cap", description: "Adjustable cotton cap." },
+    "item cost": { cost: "$89" }
+  }
+];
+const grid = makeStoreTemplate(products)
 // const pageLayout = [h1Text, formInput, formInput2, formInput3, textArea, formButton, checkboxSection, radioSection, countrySelect, textGrid, imageGrid]
 // const pageBody = makeBody('', pageLayout)
 function render(elem) {
@@ -42,6 +60,6 @@ function render(elem) {
 }
 document.addEventListener("DOMContentLoaded", () => {
     // RENDER ELEMENTS TO PAGE
-
+    render(grid)
 });
 
