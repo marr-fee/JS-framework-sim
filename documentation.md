@@ -261,7 +261,7 @@ Purpose: Creates a checkbox input wrapped in a <label>.
 ## Returns: HTMLElement — <label> with a <input type="checkbox">
 
 
-## makeRadioGroup(label = "", name = "", options = [], classes = [], id = "")
+## makeRadioElem(label = "", name = "", options = [], classes = [], id = "")
 
 Purpose: Creates a group of radio buttons with a label.
 

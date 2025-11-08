@@ -20,7 +20,7 @@ export function makeHeader(classes=[], nestElement=[], id) {
 }
 
 
-export function makeSideBar(classes=[], nestElement=[], link='#', id) {
+export function makeSideBar(nestElement=[], classes=[], link='#', id) {
     const container = document.createElement('div');
     const listWrapper = document.createElement('ul');
 
@@ -83,7 +83,7 @@ export function makeHamburgerMenu(classes=[], func, id) {
     return container
 }
 
-export function makeNavMenu(classes=[], nestElement=[], id) {
+export function makeNavMenu(nestElement=[], classes=[],  id) {
     usingNavMenu = true;
     const container = document.createElement('div')
     if (id) container.id = id

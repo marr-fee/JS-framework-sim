@@ -73,13 +73,14 @@ export function makeCheckbox( label = "", name = "", checked = false, classes = 
 
 
 export function makeRadioElem( label = "", name = "", options = [], classes = [], id) {
-    const wrapper = document.createElement("div");
+    const wrapper = document.createElement("fieldset");
+    
     if (id) wrapper.id = id;
 
     if (label) {
-        const title = document.createElement("label");
-        title.textContent = label;
-        wrapper.appendChild(title);
+        const legend = document.createElement('legend')
+        legend.textContent = label
+        wrapper.appendChild(legend);
     }
 
     options.forEach(opt => {

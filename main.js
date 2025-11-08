@@ -1,11 +1,11 @@
 
 import { makeHeader, makeSideBar, toggleSidebar, makeHamburgerMenu, makeNavMenu, usingNavMenu } from "./components/header.js";
 import { makeHero, makeSliderHero } from "./components/hero.js";
-import { makeText } from "./components/texts.js";
+import { makeCaption, makeText } from "./components/texts.js";
 import { makeButton, makeFormButton } from "./components/buttons.js";
 import { makeCardGrid } from "./components/grids.js";
 import { makeFooter } from "./components/footer.js";
-import { makeCheckbox, makeFormInput, makeRadioElem, makeSelect, makeTextArea } from "./components/forms.js";
+import { makeCheckbox, makeForm, makeFormInput, makeRadioElem, makeSelect, makeTextArea } from "./components/forms.js";
 import { addClass, nestElements } from "./utils.js";
 import { makeImage } from "./components/image.js";
 import { makeStoreTemplate } from "./components/shop-template.js";
@@ -32,6 +32,37 @@ export function makeBody(classses=[], nestElement=[], id='') {
     return container
 }
 
+const hambuerger = makeHamburgerMenu('', toggleSidebar)
+const pageTitle = makeText('h1', 'Page Title')
+const navBtn = makeButton('Click Me', '', toggleSidebar)
+const sideContent = ['Hi', 'Hey', 'How']
+const sidebar = makeSideBar(sideContent)
+const headElems = [sidebar, hambuerger, pageTitle, navBtn]
+const headSection = makeHeader('', headElems)
+
+const heroTitle = makeText('h1', 'Page Title')
+const heroSec = makeHero('', heroTitle)
+
+
+const firstNameIn = makeFormInput('First Name', 'text', 'first name', 'First Name')
+const lastNameIn = makeFormInput('Last Name', 'text', 'last name', 'Last Name')
+const emailIn = makeFormInput('Email Address', 'email', 'email', 'Email Address')
+const passwordIn = makeFormInput('Password', 'password', 'password', 'Password')
+const textArea = makeTextArea('What d you think?', 'opinion', "I believe that...")
+const checkB = makeCheckbox('Do you have that?', 'quest', false)
+const radioOptions = [{value:'seven', text:'Seven'}, {value:'one',text:'One'}, {value:'eight',text:'Eight'}, {value:'zero',text:'Zero'}]
+const radio = makeRadioElem('How many? qwqwd wefewf fqwf weg34 4fw f23432rf 23f 23f243 32 r23r23r 23t4 3t43tg 432t2 3t2twgsg svsgrgrvS gaegaa ga h hghre.', 'radio', radioOptions)
+const cap = makeCaption('This Caption')
+const formBtn = makeFormButton('Log In')
+const formContent = [firstNameIn, lastNameIn, emailIn, passwordIn, radio, checkB, textArea, formBtn, cap]
+const formSec = makeForm('', '', '', formContent)
+
+const textGridContent = ['Hi', 'Hey', 'How']
+const textGrid = makeCardGrid('text', textGridContent)
+const gridImg = ["images/cotton-socks.png", "images/plain-t-shirt.png", "images/placeholder.jpg"]
+
+const imageGrid = makeCardGrid('img', gridImg)
+const moveHero = makeSliderHero(gridImg, textGridContent)
 // PAGE LAYOUT TEMPLATE
 // Create sections seperatelly and stack to layyout
 
@@ -51,15 +82,32 @@ export function makeBody(classses=[], nestElement=[], id='') {
     item: { name: "Cap", description: "Adjustable cotton cap." },
     "item cost": { cost: "$89" }
   }
+  ,
+  {
+    image: "images/placeholder.jpg",
+    item: { name: "Cap", description: "Adjustable cotton cap." },
+    "item cost": { cost: "$89" }
+  }
 ];
+
+const footer = makeFooter()
 const grid = makeStoreTemplate(products)
-// const pageLayout = [h1Text, formInput, formInput2, formInput3, textArea, formButton, checkboxSection, radioSection, countrySelect, textGrid, imageGrid]
-// const pageBody = makeBody('', pageLayout)
+const topPage = [headSection, heroSec]
+const pageLayout = [formSec, textGrid, imageGrid, grid, ]
+const pageBody = makeBody('', pageLayout)
+const navbar = makeNavMenu(textGridContent)
 function render(elem) {
-    appContainer.appendChild(elem)
+    if (Array.isArray(elem)){
+      elem.forEach((e)=>{appContainer.appendChild(e)})
+    } else{appContainer.appendChild(elem)}
+    
 }
 document.addEventListener("DOMContentLoaded", () => {
     // RENDER ELEMENTS TO PAGE
-    render(grid)
+    render(topPage)
+    render(navbar)
+    render(moveHero)
+    render(pageBody)
+    render(footer)
 });
 

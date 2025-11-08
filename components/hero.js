@@ -1,7 +1,7 @@
 import { addClass } from "../utils.js";
 
 
-export function makeHero(imageUrl='', classes=[], nestElement=[], id) {
+export function makeHero(imageUrl='', textContent='', classes=[], id) {
     const container = document.createElement('div')
     if (id) container.id = id
     addClass(classes, container, 'def-hero-container')
@@ -10,13 +10,7 @@ export function makeHero(imageUrl='', classes=[], nestElement=[], id) {
         container.style.backgroundImage = `url(${imageUrl})`  
     }else{container.style.backgroundImage = "images/placeholder.jpg"}
     
-    if (nestElement) {
-        nestElement.forEach(elem => {
-            const [func, params] = elem;
-            const newElem = func(...params);
-            container.appendChild(newElem);
-        });
-    }
+    if (textContent) container.appendChild(textContent)
 
     return container
 }
@@ -44,7 +38,7 @@ export function makeSliderHero(imageUrl=[], text=[], classes=[], id) {
             if (captionText == null) continue;
 
             const caption = document.createElement('p');
-            caption.classList.add('caption');
+            caption.classList.add('def-sliderr-caption');
             caption.textContent = captionText;
 
 
